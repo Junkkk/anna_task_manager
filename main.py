@@ -1,7 +1,7 @@
 import uvicorn
 
 from typing import Optional
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 
 app = FastAPI()
 
