@@ -1,9 +1,19 @@
 version: '3'
 
 services:
-
   db:
-    image: "postgres:latest"
+    image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: 'pgpassql'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+    - 5432:5432
+
+
+
+#  pgadmin4:
+#    image: dpage/pgadmin4
+#    ports:
+#      - 8080:80
