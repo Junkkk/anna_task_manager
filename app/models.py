@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 
 class User(BaseModel):
-    user_name: str
+    name: str
     password: str
 
 
@@ -13,3 +13,5 @@ class Task(BaseModel):
     date: date
     status: str
     end_date: date = None
+
+
