@@ -13,5 +13,3 @@ class Task(BaseModel):
     date: date
     status: str
     end_date: date = None
-
-
