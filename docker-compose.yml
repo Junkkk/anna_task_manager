@@ -1,13 +1,13 @@
-version: "3.8"
-x-aliases:
-  - &restart
-    restart: always
-  - &logging
-    logging:
-      driver: json-file
-      options:
-        max-file: '5'
-        max-size: 10m
+version: "3.3"
+#x-aliases:
+#  - &restart
+#    restart: always
+#  - &logging
+#    logging:
+#      driver: json-file
+#      options:
+#        max-file: '5'
+#        max-size: 10m
 
 services:
   postgres:
@@ -21,8 +21,8 @@ services:
       - 5432:5432
     volumes:
       - postgresql:/var/lib/postgresql
-    <<: *logging
-    <<: *restart
+#    <<: *logging
+#    <<: *restart
 ###
   app:
     build: .
@@ -34,8 +34,8 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
-    <<: *logging
-    <<: *restart
+#    <<: *logging
+#    <<: *restart
 
 
 volumes:

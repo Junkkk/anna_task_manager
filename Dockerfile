@@ -5,5 +5,5 @@ COPY . /usr/src/app
 
 RUN python -m pip install --upgrade pip && python -m pip install -r requirements.txt
 
-CMD ["/usr/src/app/main.py"]
+CMD ["/usr/src/anna_task_manager/app/main.py"]
 ENTRYPOINT ["python"]
