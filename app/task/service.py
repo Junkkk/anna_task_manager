@@ -12,4 +12,5 @@ def create_task(db: Session, item: schemas.Task, user_id: int):
 
 
 def list_tasks(db: Session, user_id: int):
+    print('123')
     return db.query(models.Task).filter_by(user=user_id).all()

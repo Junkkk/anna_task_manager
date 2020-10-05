@@ -7,11 +7,13 @@ verify_ssl = true
 
 [packages]
 fastapi = "*"
+pydantic = "*"
 sqlalchemy = "*"
 uvicorn = "*"
 alembic = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
+fastapi-users = {extras = ["sqlalchemy"], version = "*"}
 
 [requires]
 python_version = "3.8"
