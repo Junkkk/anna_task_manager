@@ -29,8 +29,6 @@ def task_update(db: Session, obj_in: TaskUpdate, task_id: int):
     db_obj = db.query(models.Task).get(task_id)
     in_obj = obj_in.dict(skip_defaults=True)
     for field in in_obj:
-        print(field)
-        print(in_obj[field])
         setattr(db_obj, field, in_obj[field])
     db.add(db_obj)
     db.commit()
