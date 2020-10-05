@@ -31,11 +31,11 @@ async def task_list(
 async def update_task(
         task_id: int,
         item: TaskUpdate,
-        # current_user: DBUser = Depends(get_current_user),
+        current_user: DBUser = Depends(get_current_user),
         db: Session = Depends(get_db)
 ):
-    # if task_id not in user_tasks_ids(db, current_user.id):
-    #     raise HTTPException(
-    #         status_code=403, detail="you do not have permission to edit"
-    #     )
+    if task_id not in user_tasks_ids(db, current_user.id):
+        raise HTTPException(
+            status_code=403, detail="you do not have permission to edit"
+        )
     return task_update(db=db, obj_in=item, task_id=task_id)

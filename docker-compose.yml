@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  app:
+    build: .
+    restart: always
+    volumes:
+      - .:/app
+
   db:
     image: postgres
     restart: always
@@ -10,10 +16,3 @@ services:
       POSTGRES_DB: task_manager
     ports:
     - 5432:5432
-
-
-
-#  pgadmin4:
-#    image: dpage/pgadmin4
-#    ports:
-#      - 8080:80
