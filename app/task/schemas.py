@@ -12,3 +12,14 @@ class Task(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class TaskUpdate(BaseModel):
+    name: str = None
+    description: str = None
+    date: datetime = None
+    status: Status = Status.NEW
+    end_date: datetime = None
+
+    class Config:
+        orm_mode = True

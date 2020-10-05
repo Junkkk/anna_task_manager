@@ -11,7 +11,7 @@ router = APIRouter()
 
 
 @router.post("/", response_model=User)
-def create_user(
+async def create_user(
     *,
     db: Session = Depends(get_db),
     user_in: UserCreate
@@ -30,7 +30,7 @@ def create_user(
 
 
 @router.get("/me", response_model=User)
-def read_user_me(
+async def read_user_me(
     db: Session = Depends(get_db),
     current_user: DBUser = Depends(get_current_user),
 ):
@@ -41,7 +41,7 @@ def read_user_me(
 
 
 @router.get("/{user_id}", response_model=User)
-def read_user_by_id(
+async def read_user_by_id(
     user_id: int,
     current_user: DBUser = Depends(get_current_user),
     db: Session = Depends(get_db),

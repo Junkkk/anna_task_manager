@@ -17,7 +17,7 @@ router = APIRouter()
 
 
 @router.post("/login/access-token", response_model=Token, tags=["login"])
-def login_access_token(
+async def login_access_token(
     db: Session = Depends(get_db), form_data: OAuth2PasswordRequestForm = Depends()
 ):
     """
@@ -38,7 +38,7 @@ def login_access_token(
 
 
 @router.post("/login/test-token", tags=["login"], response_model=User)
-def test_token(current_user: DBUser = Depends(get_current_user)):
+async def test_token(current_user: DBUser = Depends(get_current_user)):
     """
     Test access token
     """
