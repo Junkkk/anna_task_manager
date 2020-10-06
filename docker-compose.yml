@@ -5,13 +5,11 @@ services:
     image: postgres
     restart: always
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: task_manager
     ports:
       - 5432:5432
-    volumes:
-      - postgresql:/var/lib/postgresql
 
   app:
     env_file: .env
@@ -24,7 +22,3 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
-    command: pwd
-
-volumes:
-  postgresql:
