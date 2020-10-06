@@ -13,6 +13,8 @@ uvicorn = "*"
 alembic = "*"
 psycopg2-binary = "*"
 passlib = "*"
+pyjwt = "*"
+python-multipart = "*"
 
 [requires]
 python_version = "3.8"
