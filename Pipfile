@@ -11,9 +11,8 @@ pydantic = "*"
 sqlalchemy = "*"
 uvicorn = "*"
 alembic = "*"
-psycopg2 = "*"
 psycopg2-binary = "*"
-fastapi-users = {extras = ["sqlalchemy"], version = "*"}
+passlib = "*"
 
 [requires]
 python_version = "3.8"

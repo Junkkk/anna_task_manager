@@ -1,17 +1,8 @@
-version: "3.3"
-#x-aliases:
-#  - &restart
-#    restart: always
-#  - &logging
-#    logging:
-#      driver: json-file
-#      options:
-#        max-file: '5'
-#        max-size: 10m
+version: "3"
 
 services:
   postgres:
-    image: postgres:13-alpine
+    image: postgres
     restart: always
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
@@ -21,10 +12,9 @@ services:
       - 5432:5432
     volumes:
       - postgresql:/var/lib/postgresql
-#    <<: *logging
-#    <<: *restart
-###
+
   app:
+    env_file: .env
     build: .
     volumes:
       - ./data:/app
@@ -34,9 +24,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
-#    <<: *logging
-#    <<: *restart
-
+    command: pwd
 
 volumes:
   postgresql:

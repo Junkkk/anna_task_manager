@@ -1,9 +1,8 @@
-FROM python:3.8-slim-buster
+FROM python:3.8
 
-WORKDIR /usr/src/app
-COPY . /usr/src/app
+RUN mkdir /app
+WORKDIR /app
+COPY . /app
 
-RUN python -m pip install --upgrade pip && python -m pip install -r requirements.txt
-
-CMD ["/usr/src/anna_task_manager/app/main.py"]
-ENTRYPOINT ["python"]
+RUN pip install pipenv
+RUN pipenv install
